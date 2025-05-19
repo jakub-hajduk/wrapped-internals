@@ -1,6 +1,7 @@
 {
   "name": "wrapped-internals",
   "version": "0.0.0",
+  "type": "module",
   "description": "A spec-driven, typed, and documented wrapper for ElementInternals — with ARIA insights, roles, and browser support. Framework-agnostic.",
   "scripts": {
     "dev": "pkgroll --watch",

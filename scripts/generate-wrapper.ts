@@ -185,6 +185,79 @@ cb.writeLine(`Generated at ${new Date().toUTCString()}`);
 
 let finalString = cb.toString();
 
+finalString += `
+export type AriaRole =
+    | 'alert'
+    | 'alertdialog'
+    | 'application'
+    | 'article'
+    | 'banner'
+    | 'button'
+    | 'cell'
+    | 'checkbox'
+    | 'columnheader'
+    | 'combobox'
+    | 'complementary'
+    | 'contentinfo'
+    | 'definition'
+    | 'dialog'
+    | 'directory'
+    | 'document'
+    | 'feed'
+    | 'figure'
+    | 'form'
+    | 'grid'
+    | 'gridcell'
+    | 'group'
+    | 'heading'
+    | 'img'
+    | 'link'
+    | 'list'
+    | 'listbox'
+    | 'listitem'
+    | 'log'
+    | 'main'
+    | 'marquee'
+    | 'math'
+    | 'menu'
+    | 'menubar'
+    | 'menuitem'
+    | 'menuitemcheckbox'
+    | 'menuitemradio'
+    | 'navigation'
+    | 'none'
+    | 'note'
+    | 'option'
+    | 'presentation'
+    | 'progressbar'
+    | 'radio'
+    | 'radiogroup'
+    | 'region'
+    | 'row'
+    | 'rowgroup'
+    | 'rowheader'
+    | 'scrollbar'
+    | 'search'
+    | 'searchbox'
+    | 'separator'
+    | 'slider'
+    | 'spinbutton'
+    | 'status'
+    | 'switch'
+    | 'tab'
+    | 'table'
+    | 'tablist'
+    | 'tabpanel'
+    | 'term'
+    | 'textbox'
+    | 'timer'
+    | 'toolbar'
+    | 'tooltip'
+    | 'tree'
+    | 'treegrid'
+    | 'treeitem';
+`;
+
 for (const type of types.values()) {
   if (type.definition) {
     finalString += type.definition;
@@ -205,6 +278,7 @@ finalString += ariaMetadata
   .join('\n');
 
 finalString += `
+    role: string | null;    
   }
 }`;
 
@@ -228,6 +302,46 @@ for (const property of ariaMetadata) {
 }
 
 finalString += `
+
+    get role(): AriaRole {
+        return this[internalsKey].role as AriaRole;
+    }
+    set role(value: AriaRole) {
+        this[internalsKey].role = value as string;
+    }
+
+    get form() {
+        return this[internalsKey].form;
+    }
+
+    get labels() {
+        return this[internalsKey].labels
+    }
+
+    get shadowRoot() {
+        return this[internalsKey].shadowRoot
+    }
+
+    get states() {
+        return this[internalsKey].states
+    }
+
+    get validationMessage() {
+        return this[internalsKey].validationMessage
+    }
+
+    get validity() {
+        return this[internalsKey].validity
+    }
+
+    get willValidate() {
+        return this[internalsKey].willValidate
+    }
+    
+    checkValidity = this[internalsKey].checkValidity
+    reportValidity = this[internalsKey].reportValidity
+    setFormValue = this[internalsKey].setFormValue
+    setValidity = this[internalsKey].setValidity
 }
 `;
 
