@@ -1,6 +1,6 @@
 {
   "name": "wrapped-internals",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "A spec-driven, typed, and documented wrapper for ElementInternals — with ARIA insights, roles, and browser support. Framework-agnostic.",
   "scripts": {
@@ -12,7 +12,12 @@
     "fix": "biome check --fix",
     "release": "pnpm run fix && pnpm run build && changelogen --release --push --publish"
   },
-  "keywords": ["web components", "element internals", "lit", "fast"],
+  "keywords": [
+    "web components",
+    "element internals",
+    "lit",
+    "fast"
+  ],
   "author": {
     "name": "Jakub Hajduk",
     "email": "devhajduk@gmail.com"
@@ -39,7 +44,9 @@
     "turndown": "^7.2.0",
     "typescript": "^5.7.3"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "exports": {
     ".": {
       "import": {
