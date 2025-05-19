@@ -1,0 +1,65 @@
+{
+  "name": "wrapped-internals",
+  "version": "0.0.0",
+  "description": "A spec-driven, typed, and documented wrapper for ElementInternals — with ARIA insights, roles, and browser support. Framework-agnostic.",
+  "scripts": {
+    "dev": "pkgroll --watch",
+    "fetch-data": "tsx scripts/fetch-data.ts",
+    "generate-wrapper": "tsx scripts/generate-wrapper.ts",
+    "build": "pkgroll",
+    "test": "tsx ./scripts/test-runner.ts",
+    "check": "biome check",
+    "fix": "biome check --fix",
+    "release": "pnpm run fix && pnpm run build && changelogen --release --push --publish"
+  },
+  "keywords": ["web components", "element internals", "lit", "fast"],
+  "author": {
+    "name": "Jakub Hajduk",
+    "email": "devhajduk@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakub-hajduk/wrapped-internals.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/node": "^22.13.4",
+    "@types/turndown": "^5.0.5",
+    "change-case": "^5.4.4",
+    "changelogen": "^0.5.7",
+    "cheerio": "^1.0.0",
+    "comment-builder": "^0.1.0",
+    "dotenv": "^16.4.7",
+    "glob": "^11.0.1",
+    "json-to-ts": "^2.1.0",
+    "json-ts": "^1.6.4",
+    "pkgroll": "^2.10.0",
+    "tsx": "^4.19.2",
+    "turndown": "^7.2.0",
+    "typescript": "^5.7.3"
+  },
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "default": "./dist/index.cjs",
+        "types": "./dist/index.d.cts"
+      }
+    },
+    "/metadata": {
+      "import": {
+        "default": "./dist/metadata.js",
+        "types": "./dist/metadata.d.ts"
+      },
+      "require": {
+        "default": "./dist/metadata.cjs",
+        "types": "./dist/metadata.d.cts"
+      }
+    }
+  }
+}
