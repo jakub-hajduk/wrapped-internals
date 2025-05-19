@@ -8,7 +8,6 @@
     "fetch-data": "tsx scripts/fetch-data.ts",
     "generate-wrapper": "tsx scripts/generate-wrapper.ts",
     "build": "pkgroll",
-    "test": "tsx ./scripts/test-runner.ts",
     "check": "biome check",
     "fix": "biome check --fix",
     "release": "pnpm run fix && pnpm run build && changelogen --release --push --publish"
